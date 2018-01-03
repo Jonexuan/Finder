@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Flex, List, InputItem, WingBlank, WhiteSpace, Button, Toast } from 'antd-mobile'
 import XIcon from '../../component/common/icon'
+import Footer from '../../component/common/footer'
 import logo from '../../static/image/logo.png'
 import * as api from './api'
 import * as user from '../../service/user-state'
@@ -77,6 +78,7 @@ export default class Login extends Component {
                     <Button type="primary" onClick={ () => { this.doLogin() }}>登录</Button>
                 </List>
                 </WingBlank>
+                <Footer />
             </div>
         )
     }
