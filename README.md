@@ -1,7 +1,7 @@
-#Finder -College Student Friends Finder
+##Finder -College Student Friends Finder
 
--login & complete your profile
+1. login & complete your profile
 
--rate your friends
+2. rate your friends
 
--look for your scores
+3. look for your scores
