@@ -21,12 +21,10 @@ export default class Login extends Component {
     render() {
         return (
             <div>
-                <Header />
+                <Header showLogout />
                 <Carousel
                     autoplay={false}
                     infinite
-                    beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
-                    afterChange={index => console.log('slide to', index)}
                 >
                 {conf.silderImages.map(item => (
                     <a

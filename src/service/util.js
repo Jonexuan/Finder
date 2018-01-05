@@ -5,3 +5,7 @@ export function toFormData(json) {
     }
     return form_data
 }
+
+export function setTitle(title) {
+    window.document.title = title
+}

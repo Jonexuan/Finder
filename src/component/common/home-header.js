@@ -13,12 +13,15 @@ const goBack = () => {
     window.history.back()
 }
 
-export default function Header() {
+export default function Header(props) {
     return (
         <Flex justify="between" className="header-title">
             <XIcon type="icon-back" className="margin-1 cursor" onClick={ () => { goBack() }} />
             <p>情不知所起，一往而情深</p>
-            <XIcon type="icon-logout" className="margin-1 cursor" onClick={ () => { doLogout() }} />
+            {
+                props.showLogout ? <XIcon type="icon-logout" className="margin-1 cursor" onClick={ () => { doLogout() }} />
+                : <span />
+            }
         </Flex>
     )
 }
