@@ -39,10 +39,8 @@ export default class Login extends Component {
         }
         api.login(data)
             .then((res) => {
-                if (res !== 'ok') {
-                    Toast.fail(`${res}`);
-                } else {
-                    user.login(data)
+                if (res.code === 200) {
+                    user.login(Object.assign({}, data, {sessionId: res.result}))
                     Toast.success('登录成功')
                     window.location.reload()
                 }

@@ -86,18 +86,8 @@ module.exports = function(proxy, allowedHost) {
     },
     public: allowedHost,
     proxy: {
-      '/system': {
-        target: 'http://www.nights666.cn:5868/finder/',
-        pathRewrite: {'^/column' : '/column'},
-        changeOrigin: true
-      },
-      '/user': {
-        target: 'http://www.nights666.cn:5868/finder/',
-        pathRewrite: {'^/column' : '/column'},
-        changeOrigin: true
-      },
-      '/score': {
-        target: 'http://www.nights666.cn:5868/finder/',
+      '/finder_api/api': {
+        target: 'http://120.78.220.28:5868/',
         pathRewrite: {'^/column' : '/column'},
         changeOrigin: true
       }

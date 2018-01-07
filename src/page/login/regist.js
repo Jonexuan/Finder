@@ -62,9 +62,7 @@ export default class Login extends Component {
         }
         api.regist(data)
             .then((res) => {
-                if (res !== 'ok') {
-                    Toast.fail(`${res}`);
-                } else {
+                if (res.code === 200) {
                     Toast.success('注册成功')
                     this.props.history.puah('/login')
                 }
