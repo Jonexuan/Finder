@@ -75,7 +75,6 @@ export default class Login extends Component {
                 <Header showLogout={false} />
                 <WhiteSpace size="xl" />
                 <WhiteSpace size="xl" />
-                <WhiteSpace size="xl" />
                 <WingBlank>
                     <List>
                         <InputItem type="digit" onFocus={() => {this.showFooter(false)}} onBlur={() => {this.showFooter(true)}} placeholder="请输入用户编号" value={this.state.name} onChange={ (v) => {this.onChangeValue('name', v)}} >

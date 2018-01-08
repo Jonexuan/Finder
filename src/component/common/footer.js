@@ -5,11 +5,18 @@ import classnames from 'classnames'
 
 export default function Footer(props) {
     return (
-        <Flex justify="center" className="footer-box">
-            <div className={classnames({'hide': !props.show})}>
-                <span>Finder-Designed 4 U</span>
-                <WhiteSpace size="xl" />
-            </div>
-        </Flex>
+        <div>
+            {
+                props.home ?
+                <div>
+                    <WhiteSpace size="xl" />
+                    <WhiteSpace size="xl" />
+                </div>
+                : null
+            }
+            <Flex justify="center" className={classnames({ "footer": true,"footer-box": !props.home,'hide': !props.show, [props.className]: true} )}>
+                <p>Finder-Designed 4 U</p>
+            </Flex>
+        </div>
     )
 }
