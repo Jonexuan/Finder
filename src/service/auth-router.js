@@ -1,13 +1,16 @@
 import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
-import Home from '../page/home/'
 
-export default function AuthRouter(props) {
+export default function AuthRouter({ component: Component, ...rest }) {
     return (
-        <Route path={props.path} render={() => (
-            props.isAuth
-              ? <Home {...props} />
-              : <Redirect from="/" to="/login" />
+        <Route {...rest} render={(props) => (
+            rest.isAuth
+              ? <Component {...props} />
+              : <Redirect to={{
+		          pathname: '/login',
+		          state: { from: props.location }
+		        }}
+		        />
           )} />
     )
 }

@@ -8,6 +8,7 @@ import Regist from './page/login/regist'
 import User from './page/user/'
 import Rate from './page/rate/'
 import Result from './page/result/'
+import Home from './page/home/'
 
 class App extends Component {
   constructor(props) {
@@ -25,7 +26,7 @@ class App extends Component {
           <Route path="/result" component={Result} />
           <Route path="/user" component={User} />
           <Route path="/rate" component={Rate} />
-          <AuthRouter path="/" isAuth={user.isLogin()} />
+          <AuthRouter path="/" isAuth={user.isLogin()} component={Home} />
         </Switch>
       </Router>
     )
