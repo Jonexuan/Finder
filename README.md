@@ -1,4 +1,4 @@
-##Finder -College Student Friends Finder
+## Finder -College Student Friends Finder
 
 1. login & complete your profile
 
