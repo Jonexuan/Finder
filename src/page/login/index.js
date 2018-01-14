@@ -56,9 +56,9 @@ export default class Login extends Component {
     }
     
     onChangeValue(type, value) {
-    this.setState({
-        [type]: value
-    })
+        this.setState({
+            [type]: value
+        })
     }
     toRegist() {
         this.props.history.push('/regist')
@@ -71,25 +71,25 @@ export default class Login extends Component {
                     <img src={logo} alt="logo" className="app-logo" />
                 </Flex>
                 <WingBlank>
-                <List>
-                    <InputItem type="digit" placeholder="请输入用户编号" onFocus={() => {this.showFooter(false)}} onBlur={() => {this.showFooter(true)}} value={this.state.name} onChange={ (v) => {this.onChangeValue('name', v)}} >
-                        <XIcon type="icon-user" />
-                    </InputItem>
-                </List>
-                <WhiteSpace size="xl" />
-                <List>
-                    <InputItem type="password" placeholder="请输入密码" onFocus={() => {this.showFooter(false)}} onBlur={() => {this.showFooter(true)}} value={this.state.password} onChange={ (v) => {this.onChangeValue('password', v)}}>
-                        <XIcon type="icon-pwd" />
-                    </InputItem>
-                </List>
-                <WhiteSpace size="xl" />
-                <Flex justify="end">
-                    <a onClick={ () => { this.toRegist() } }>新用户注册</a>
-                </Flex>
-                <WhiteSpace size="xl" />
-                <List>
-                    <Button type="primary" onClick={ () => { this.doLogin() }}>登录</Button>
-                </List>
+                    <List>
+                        <InputItem type="digit" placeholder="请输入用户编号" onFocus={() => {this.showFooter(false)}} onBlur={() => {this.showFooter(true)}} value={this.state.name} onChange={ (v) => {this.onChangeValue('name', v)}} >
+                            <XIcon type="icon-user" />
+                        </InputItem>
+                    </List>
+                    <WhiteSpace size="xl" />
+                    <List>
+                        <InputItem type="password" placeholder="请输入密码" onFocus={() => {this.showFooter(false)}} onBlur={() => {this.showFooter(true)}} value={this.state.password} onChange={ (v) => {this.onChangeValue('password', v)}}>
+                            <XIcon type="icon-pwd" />
+                        </InputItem>
+                    </List>
+                    <WhiteSpace size="xl" />
+                    <Flex justify="end">
+                        <a onClick={ () => { this.toRegist() } }>新用户注册</a>
+                    </Flex>
+                    <WhiteSpace size="xl" />
+                    <List>
+                        <Button type="primary" onClick={ () => { this.doLogin() }}>登录</Button>
+                    </List>
                 </WingBlank>
                 <Footer show={this.state.footer} />
             </div>

@@ -5,10 +5,7 @@ import AuthRouter from './service/auth-router'
 import * as user from './service/user-state'
 import Login from './page/login/'
 import Regist from './page/login/regist'
-import User from './page/user/'
-import Rate from './page/rate/'
-import Result from './page/result/'
-import Home from './page/home/'
+import BasicLayout from './layout/basic'
 
 class App extends Component {
   constructor(props) {
@@ -23,10 +20,7 @@ class App extends Component {
         <Switch>
           <Route path="/regist" component={Regist} />
           <Route path="/login" component={Login} />
-          <Route path="/result" component={Result} />
-          <Route path="/user" component={User} />
-          <Route path="/rate" component={Rate} />
-          <AuthRouter path="/" isAuth={user.isLogin()} component={Home} />
+          <AuthRouter isAuth={user.isLogin()} component={BasicLayout} />
         </Switch>
       </Router>
     )

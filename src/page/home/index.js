@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
-import { Carousel, WingBlank, Button, List, WhiteSpace } from 'antd-mobile'
-// import logo from '../../static/image/logo_white.png'
+import { Carousel, List, WhiteSpace } from 'antd-mobile'
 import * as conf from '../../service/conf'
 import './home.less'
-import * as user from '../../service/user-state'
 import Header from '../../component/common/home-header'
 import XIcon from '../../component/common/icon'
 import Footer from '../../component/common/footer'
@@ -14,10 +12,8 @@ const Brief = Item.Brief
 export default class Home extends Component {
     constructor(props) {
         super(props)
-        console.log(this.props)
         this.state = {
-            data: ['', '', ''],
-            imgHeight: '25%',
+            data: ['', '', '']
         }
         this.toDetail = this.toDetail.bind(this)
     }
@@ -28,14 +24,14 @@ export default class Home extends Component {
     toDetail(flag) {
         switch(flag) {
             case 1:
-                console.log(this.context.router)
-                // this.props.history.push('/user')
+                // console.log(this.context.router)
+                this.props.history.push('/user')
                 break;
             case 2:
-                // this.props.history.push()
+                this.props.history.push('/rate')
                 break;
             case 3:
-                // this.props.history.push()
+                this.props.history.push('/result')
                 break;
             default:
                 break;
@@ -45,21 +41,17 @@ export default class Home extends Component {
     render() {
         return (
             <div>
-                <Header showLogout />
                 <Carousel
                     autoplay={false}
                     infinite
                 >
                 {conf.silderImages.map(item => (
-                    <a
-                    key={item.index}
-                    style={{ display: 'inline-block', width: '100%', height: this.state.imgHeight}}
-                    >
-                    <img
-                        src={item.src}
-                        alt={conf.slogn}
-                        style={{ width: '100%', verticalAlign: 'top' }}
-                    />
+                    <a key={item.index} >
+                        <img
+                            src={item.src}
+                            alt={conf.slogn}
+                            style={{ width: '100%', height: '25%', minHeight: '200px' }}
+                        />
                     </a>
                 ))}
                 </Carousel>
@@ -77,7 +69,9 @@ export default class Home extends Component {
                         <Brief> 查看双方打分总和的最高前<span className="text-red">6</span>位</Brief>
                     </Item>
                 </List>
-                <Footer show={true} className="bg-deep" home />
+                <WhiteSpace size="xl" />
+                <WhiteSpace size="xl" />
+                <WhiteSpace size="xl" />
             </div>
         )
     }
