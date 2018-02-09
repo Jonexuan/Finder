@@ -30,9 +30,16 @@ export default class Login extends Component {
             .then((res) => {
                 if(res.code === 200) {
                     Object.keys(res.result).map((k) => {
-                        this.setState({
-                            [k]: res.result[k]
-                        })
+                        if(k === 'images') {
+                            const images = res.result[k].map(image => {
+                                return {'url': image}
+                            });
+                            this.setState({ images: images })
+                        } else {
+                            this.setState({
+                                [k]: res.result[k]
+                            })
+                        }
                     })
                 }
             })
