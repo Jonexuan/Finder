@@ -9,6 +9,9 @@
 # api
 /API
 
+#doc
+/doc
+
 # production
 /build
 
