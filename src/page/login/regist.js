@@ -64,7 +64,7 @@ export default class Login extends Component {
             .then((res) => {
                 if (res.code === 200) {
                     Toast.success('注册成功')
-                    this.props.history.puah('/login')
+                    this.props.history.push('/login')
                 }
             })
     }

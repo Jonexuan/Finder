@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { List, InputItem, WingBlank, WhiteSpace, TextareaItem, ImagePicker, Button } from 'antd-mobile'
+import { List, InputItem, WingBlank, WhiteSpace, TextareaItem, ImagePicker, Button, Toast } from 'antd-mobile'
 import * as api from './api'
 
 export default class Login extends Component {
@@ -21,7 +21,23 @@ export default class Login extends Component {
             })
         }
         this.doSave = () => {
-
+            Toast.loading('Loading...', 3);
+            api.saveUserInfo({
+                userName: this.state.userName,
+                userHomeTown: this.state.userHomeTown,
+                qqNumber: this.state.qqNumber,
+                hobby: this.state.hobby,
+            }).then((res) => {
+                if (res.code === 200) {
+                    api.saveUserimage(this.state.images.map((image) => {
+                        return image.url
+                    })).then((res) => {
+                        if (res.code === 200) {
+                            Toast.success('保存个人信息成功', 3, () => window.location.reload());
+                        }
+                    })
+                }
+            })
         }
     }
 
@@ -35,10 +51,12 @@ export default class Login extends Component {
                                 return {'url': image}
                             });
                             this.setState({ images: images })
+                            return true
                         } else {
                             this.setState({
                                 [k]: res.result[k]
                             })
+                            return true
                         }
                     })
                 }
@@ -72,7 +90,7 @@ export default class Login extends Component {
                     <TextareaItem rows={3} title="兴趣爱好" value={this.state.hobby} onChange={ (v) => {this.onChangeValue('hobby', v)}} />
                     <ImagePicker files={this.state.images} multiple={true} onChange={this.onFilesChange} />
                 </List>
-                <Button onClick={this.doSave()} type="primary">保存</Button>
+                <Button onClick={ () => this.doSave()} type="primary">保存</Button>
             </WingBlank>
         )
     }
