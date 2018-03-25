@@ -6,7 +6,9 @@ import User from '../page/user/';
 import Rate from '../page/rate/';
 import Result from '../page/result/';
 import Home from '../page/home/';
-import RateDetail from '../page/rate/detail'
+import RateDetail from '../page/rate/detail';
+import ResultDetail from '../page/result/detail';
+
 import * as u from '../service/user-state'
 
 
@@ -24,6 +26,7 @@ export default class BasicLayout extends React.Component {
                 <Header showLogout />
                 <Router >
                     <Switch>
+                        <Route path="/result/:id" component={ResultDetail} />
                         <Route path="/result" component={Result} />
                         <Route path="/user" component={User} />
                         <Route path="/rate/:id" component={RateDetail} />

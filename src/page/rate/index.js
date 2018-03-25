@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { List } from 'antd-mobile';
+import { List, Toast } from 'antd-mobile';
 import classnames from 'classnames'
 import * as api from './api'
 import thumb from '../../static/image/default1.png'
@@ -11,11 +11,16 @@ export default class Login extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            beauties: []
+            beauties: [],
+            loading: true
         }
         this.fetchData = () => {
             api.getList()
                 .then((res) => {
+                    this.setState({
+                        loading: false
+                    })
+                    Toast.hide()
                     if(res.code === 200) {
                         this.setState({
                             beauties: res.result
@@ -33,6 +38,10 @@ export default class Login extends Component {
     }
 
     render() {
+        if(this.state.loading) {
+            Toast.loading('加载中...', 0);
+            return null;
+        }
         return (
             <div>
                 <List className="my-list">

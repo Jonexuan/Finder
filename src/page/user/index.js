@@ -29,9 +29,9 @@ export default class Login extends Component {
                 hobby: this.state.hobby,
             }).then((res) => {
                 if (res.code === 200) {
-                    api.saveUserimage(this.state.images.map((image) => {
+                    api.saveUserimage({"images": this.state.images.map((image) => {
                         return image.url
-                    })).then((res) => {
+                    })}).then((res) => {
                         if (res.code === 200) {
                             Toast.success('保存个人信息成功', 3, () => window.location.reload());
                         }

@@ -29,16 +29,6 @@ export default class Login extends Component {
                     }
                 })
         }
-        this.doSave = () => {
-            api.saveScore({
-                beScoredUserId: this.state.id,
-                score: this.state.score
-            }).then((res) => {
-                if(res.code === 200) {
-                    Toast.success(res.msg, 3, () => this.props.history.push('/rate'));
-                }
-            })
-        }
     }
 
     componentWillMount() {
@@ -69,10 +59,6 @@ export default class Login extends Component {
                             }
                         </Brief>
                     </Item>
-                    <InputItem type="digit" placeholder="请在区间[3-10]打分" value={this.state.score} onChange={ (v) => {this.onChangeValue('userNumber', v)}} >
-                        您的打分
-                    </InputItem>
-                    <Button onClick={ () => this.doSave()} type="primary">保存</Button>
                 </List>
                 <WhiteSpace size="xl" />
                 <WhiteSpace size="xl" />
